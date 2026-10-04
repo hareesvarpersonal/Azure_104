@@ -1,0 +1,30 @@
+**Delivery & Process: B7**
+
+- Took ownership of production stabilization on the J&J AWS migration. I broke down blockers such as IAM assume-role access, Helm upgrade failures, secret mappings, and image pull secrets into clear, trackable fixes and closed each one.
+- Automated data-feed cron jobs across all schedules (monthly, quarterly, bi-yearly, yearly, and ad hoc) using scripts and reusable Helm chart templates, following standard Kubernetes and Helm practices.
+- Gave timely updates on critical fixes and contributed inputs in team discussions on deployment and environment issues.
+- Helped leads plan upcoming work by identifying next priorities: version issues, JFrog artifact mappings, Grafana–CloudWatch monitoring, test automation, and a 4th account environment.
+
+**Delivery & Process: B6L**
+
+- Ensured quality production delivery by resolving recurring Helm upgrade failures, secret provider access issues, and namespace-level permission errors that were affecting deployments.
+- Diagnosed and fixed deployment blockers end to end. I remediated Wiz scan findings across all Dockerfiles, corrected the wrong artifact pickup for QA, fixed environment mappings in charts, and resolved container spin-off issues to restore continuous flow.
+- **Collaboration:** Integrated and worked across third-party tools like Wiz, JFrog, and Helm, and contributed troubleshooting insights in team discussions.
+- **Process efficiency:** Replaced manual script runs with automated cron jobs and chart fixes, and kept leads updated on blockers and timelines.
+
+**Business & Communication: B7**
+
+- Understood the business impact of production instability and deployment blockers on the migration timeline, and prioritized fixes that unblocked delivery fastest.
+- Improved the process by automating data-feed cron jobs, which removed repetitive manual effort and reduced the chance of missed scheduled runs.
+- Communicated issues, root causes, and fixes promptly to the team and stakeholders during critical incidents.
+- Promoted security best practices within the team by fixing Wiz vulnerabilities, using proper IAM role scoping, and managing secrets through the Secret Provider Class instead of hardcoded values.
+- Handled IAM access, secrets, and client environment details in line with confidentiality standards.
+
+**Business & Communication: B6L**
+
+- Kept my work aligned with project goals such as deployment continuity and environment stability. I treated security scan compliance and production uptime as top priorities.
+- Made practical trade-offs during critical fixes, such as temporarily disabling non-essential services to restore continuous flow, while keeping security and stability intact.
+- Communicated clearly in both written and verbal updates on blockers and resolutions, which built trust with leads and client counterparts.
+- **Practice development:** Proposed improvements for upcoming work, including Grafana with CloudWatch for monitoring, test automation, and standardized JFrog artifact mappings.
+
+If you share whether any of these had measurable results, such as deployments unblocked, time saved, or how many charts or services you fixed, I can add one number per section. That usually makes a promotion case much stronger.
