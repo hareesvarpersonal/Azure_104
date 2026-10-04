@@ -1,30 +1,46 @@
+Here are expanded points for both sections. Each one is labeled with the framework area it covers, so reviewers can see the match. If the form has a character limit, tell me and I'll trim these to fit.
+
 **Delivery & Process: B7**
 
-- Took ownership of production stabilization on the J&J AWS migration. I broke down blockers such as IAM assume-role access, Helm upgrade failures, secret mappings, and image pull secrets into clear, trackable fixes and closed each one.
-- Automated data-feed cron jobs across all schedules (monthly, quarterly, bi-yearly, yearly, and ad hoc) using scripts and reusable Helm chart templates, following standard Kubernetes and Helm practices.
-- Gave timely updates on critical fixes and contributed inputs in team discussions on deployment and environment issues.
-- Helped leads plan upcoming work by identifying next priorities: version issues, JFrog artifact mappings, Grafana–CloudWatch monitoring, test automation, and a 4th account environment.
+- **Requirement clarity:** As the sole DevOps engineer on the J&J AWS migration, I gathered DevOps requirements for each release phase and clarified expectations with leads and developers. I then turned them into clear, trackable tasks across the pipeline, Helm, and environment work.
+- **Production setup:** Set up and stabilized the production environment end to end. This included resolving IAM assume-role restrictions that blocked access to namespace resources (deployments, services, replicas), recurring Helm upgrade failures, and secret mapping issues.
+- **Secrets and images:** Fixed pod access to the Kubernetes Secret Provider Class and configured image pull secrets in the Helm charts, so services could securely fetch secrets and images in every environment.
+- **Automation:** Delivered 5 new cron jobs and enhanced the existing daily and weekly scripts, so all Python data-feed scripts load the database on schedule. I also built reusable Helm chart templates for monthly, quarterly, bi-yearly, yearly, and ad hoc runs.
+- **Best practices:** Followed industry standards throughout, including templated Helm charts, environment-specific configuration, controlled deployments, and security scanning in the pipeline.
+- **Status updates:** Gave timely updates on blockers, root causes, and fixes, including in the internal project group, so leads always had a clear view of delivery status.
+- **Team discussions:** Contributed DevOps input in team discussions on deployment issues, release scope, and environment strategy.
+- **Process efficiency:** Helped leads plan the UAT timeline by scoping the release to IRP Core and its required services. I also identified upcoming DevOps priorities: artifact versioning, JFrog mappings, monitoring, test automation, and a new environment.
 
 **Delivery & Process: B6L**
 
-- Ensured quality production delivery by resolving recurring Helm upgrade failures, secret provider access issues, and namespace-level permission errors that were affecting deployments.
-- Diagnosed and fixed deployment blockers end to end. I remediated Wiz scan findings across all Dockerfiles, corrected the wrong artifact pickup for QA, fixed environment mappings in charts, and resolved container spin-off issues to restore continuous flow.
-- **Collaboration:** Integrated and worked across third-party tools like Wiz, JFrog, and Helm, and contributed troubleshooting insights in team discussions.
-- **Process efficiency:** Replaced manual script runs with automated cron jobs and chart fixes, and kept leads updated on blockers and timelines.
+- **Production ownership:** As the only DevOps engineer, I owned production deployments for the project from initial environment setup through stabilization, so releases reached prod reliably.
+- **Root cause analysis:** Found that a flaw in how the pipeline iterated through version calculations was deploying the wrong artifacts to QA and prod. I provided an interim deployment workaround and recommended a proper branching strategy, which fixed the issue and improved release management.
+- **Critical troubleshooting:** A Wiz scan in the client's pipeline template failed on all previously developed code and blocked deployments in every environment. I devised a controlled bypass for dev only, keeping prod compliance intact, so development could continue.
+- **Quality gates:** Kept a dev gate enabled so the critical fixes needed for UAT testing were still validated before moving forward.
+- **Release scoping:** Reconfigured the pipeline and Helm charts to exclude the front-end and accounting services from the UAT phase. They had the most Wiz failures and weren't required for that phase, so this kept the IRP Core release on schedule.
+- **Configuration fixes:** Corrected environment mappings in the Helm charts that had been forcing manual script runs, which restored an automated, continuous deployment flow.
+- **Collaboration:** Worked across third-party tools and services including Wiz, JFrog, Jenkins, Helm, and AWS. I shared the Wiz fix with other teams using the same client pipeline template, which unblocked their deployments too.
+- **Planned (new environment):** After sign-off, I'll set up a new environment between QA and prod. My plan uses it without disturbing the current branching model and defines what testing runs in each environment.
+- **Planned (testing and monitoring):** I'm enhancing the Jenkins pipeline with Robot Framework regression testing and building Grafana dashboards with CloudWatch for all microservices. The goal is earlier defect detection and proactive monitoring.
 
 **Business & Communication: B7**
 
-- Understood the business impact of production instability and deployment blockers on the migration timeline, and prioritized fixes that unblocked delivery fastest.
-- Improved the process by automating data-feed cron jobs, which removed repetitive manual effort and reduced the chance of missed scheduled runs.
-- Communicated issues, root causes, and fixes promptly to the team and stakeholders during critical incidents.
-- Promoted security best practices within the team by fixing Wiz vulnerabilities, using proper IAM role scoping, and managing secrets through the Secret Provider Class instead of hardcoded values.
-- Handled IAM access, secrets, and client environment details in line with confidentiality standards.
+- **Business scope:** Understood that UAT readiness was the business priority, and focused DevOps effort on unblocking the IRP Core path first rather than fixing every service at once.
+- **Value additions:** Automated the scheduled data feeds into the database, which removed manual effort and keeps business data current without depending on any one person.
+- **Process improvement:** Recommended a branching approach that eliminated the artifact mismatch problem and gave the team a cleaner, more predictable release flow.
+- **Stakeholder communication:** Explained issues, their impact, and the required fixes clearly in the internal project group. I responded promptly, so stakeholders stayed aligned without repeated follow-ups.
+- **Pod communication:** Explained to the development team why the Wiz bypass was limited to dev and why prod enforcement stayed in place, keeping the trade-off aligned with security and organizational standards.
+- **Security practices:** Promoted secure practices within the team: least-privilege IAM roles, secrets managed through the Secret Provider Class instead of hardcoded values, image pull secrets, and security scanning.
+- **Ethics:** Handled IAM access, secrets, and client environment details in line with confidentiality and professional standards.
+- **Practice development:** Proposed Grafana–CloudWatch dashboards and Robot Framework regression testing as improvements to the project's delivery practice.
 
 **Business & Communication: B6L**
 
-- Kept my work aligned with project goals such as deployment continuity and environment stability. I treated security scan compliance and production uptime as top priorities.
-- Made practical trade-offs during critical fixes, such as temporarily disabling non-essential services to restore continuous flow, while keeping security and stability intact.
-- Communicated clearly in both written and verbal updates on blockers and resolutions, which built trust with leads and client counterparts.
-- **Practice development:** Proposed improvements for upcoming work, including Grafana with CloudWatch for monitoring, test automation, and standardized JFrog artifact mappings.
-
-If you share whether any of these had measurable results, such as deployments unblocked, time saved, or how many charts or services you fixed, I can add one number per section. That usually makes a promotion case much stronger.
+- **Business scope and KRAs:** Treated deployment continuity, environment stability, the release schedule, and security compliance as my key result areas, and aligned all DevOps work to them.
+- **Trade-offs:** As the sole DevOps engineer, I made schedule-critical decisions: the dev-only Wiz bypass, scoping UAT to the required services, and the interim deployment workaround. Each one balanced speed against security and quality, in line with organizational values.
+- **Communication:** Explained the reasoning, risks, and next steps behind each alternative approach to leads and stakeholders, in both written and verbal updates. This built confidence in DevOps decisions.
+- **Ethics:** Stayed transparent by clearly stating each temporary workaround and its limits, rather than quietly bypassing controls.
+- **Business improvement:** Designed a strategy for the upcoming environment between QA and prod, with a testing plan for each environment that improves release quality without disrupting current workflows.
+- **Practice development:** Leading observability (Grafana with CloudWatch) and regression automation (Jenkins with Robot Framework) as initiatives to reduce production issues and catch defects earlier.
+- **Cross-team trust:** Shared the Wiz pipeline fix with other teams facing the same client template issue, which built goodwill across teams.
+- **Client expectations:** Kept UAT on schedule despite pipeline-wide blockers, helping meet the client's expectations for the release.
